@@ -5,6 +5,9 @@ import os          # This helps our script interact with our computer's files an
 import json        # This lets our script work with JSON Data
 
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")  # This is the Personal Access Token
+if not GITHUB_TOKEN:
+    print("Warning: GITHUB_TOKEN environment variable not set. API requests may be rate limited.", file=sys.stderr)
+    
 ORG_NAME = "Scytale-exercise"
 
 # Here is a list of all the repos
@@ -51,4 +54,5 @@ if __name__ == "__main__":
         print(f"Fetching merged PRs for repo: {repo}")
         prs = fetch_merged_prs(ORG_NAME, repo)
         save_prs(prs, repo)
+
 
