@@ -4,7 +4,7 @@ import requests    # This allows us to communicate with the internet
 import os          # This helps our script interact with our computer's files and folders.
 import json        # This lets our script work with JSON Data
 
-GITHUB_TOKEN = "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"   # This is the Personal Access Token
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")  # This is the Personal Access Token
 ORG_NAME = "Scytale-exercise"
 
 # Here is a list of all the repos
@@ -51,3 +51,4 @@ if __name__ == "__main__":
         print(f"Fetching merged PRs for repo: {repo}")
         prs = fetch_merged_prs(ORG_NAME, repo)
         save_prs(prs, repo)
+
