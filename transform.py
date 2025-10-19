@@ -6,7 +6,7 @@ import csv
 import requests
 
 
-GITHUB_TOKEN = "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"
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
 USER = os.getlogin()
 
@@ -94,3 +94,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
