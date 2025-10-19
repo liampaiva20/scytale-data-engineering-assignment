@@ -7,6 +7,8 @@ import requests
 
 
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+if not GITHUB_TOKEN:
+    print("Warning: GITHUB_TOKEN environment variable not set. API requests may be rate limited.", file=sys.stderr)
 
 USER = os.getlogin()
 
@@ -94,4 +96,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
